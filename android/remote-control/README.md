@@ -2,7 +2,7 @@
 
 Lors du second semestre de M1, j'ai dû réaliser (avec
 [Guillaume Béchade](https://www.linkedin.com/in/guillaume-b%C3%A9chade-60a467145/),
-[Craig Josse](https://www linkedin.com/in/craig-josse-659967125/) et
+[Craig Josse](https://www.linkedin.com/in/craig-josse-659967125/) et
 [Antoine Laulan](https://www.linkedin.com/in/antoinelaulan/)) une sorte de télécommande contrôlable à distance, en
 utilisant les différents capteurs d'un terminal sous Android (<i>smartphone</i>, tablette).
 

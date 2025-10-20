@@ -1,0 +1,252 @@
+Filename:RPG
+0->X
+N>0=>M>0=>W=1=>5->X
+N>0=>M>0=>W=2=>5->X
+If X=5:Then ClrText
+"REPRENDRE"
+"1-OUI"
+"2-NON"
+?->X
+X=1=>Goto X
+IfEnd
+Lbl 3
+0->A~Z
+ClrText
+"ADVERSAIRE"
+"1-GUERRIER"
+"2-MAGE"
+?->W
+W>2=>Goto 3
+W<1=>Goto 3
+Lbl H
+ClrText
+"1-FACILE"
+"2-NORMAL"
+"3-DIFFICILE"
+"4-HARDCORE"
+?->X
+X=1=>0.5->V
+X=2=>1->V
+X=3=>1.2->V
+X=4=>1.4->V
+X>4=>Goto H
+X<1=>Goto H
+5000->M
+25000->N
+W=2=>4000->N
+Lbl 0
+M<=0=>Goto Y
+Int 3Ran#->T
+Dsz C:Dsz D:Dsz E:Dsz F:Dsz G:Dsz H:Dsz I:Dsz S
+Lbl X
+ClrText
+"VIE ENNEMI":N
+"RETT":P
+"VIE":M
+"RETT":O
+If J>3:Then "ENDORMI"
+" "
+Goto 1
+IfEnd
+ClrText
+F>2=>"VIGUEUR"
+G>4=>"PARALYSIE"
+H>4=>"REDUCTION"
+Lbl 2
+ClrText
+"1-ATTAQUE"
+"2-MAGIE"
+"3-BOOST"
+"4-RETOUR"
+?->X
+X=1=>Goto 4
+X=2=>Goto 8
+X=3=>Goto C
+X=4=>Goto X
+X>4=>Goto 2
+X<1=>Goto 2
+Lbl 4
+ClrText
+"1-COUP"
+"2-PUNITION"
+"3-COMBO"
+"4-RETOUR"
+?->X
+X=1=>Goto 5
+X=2=>Goto 6
+X=3=>Goto 7
+X=4=>Goto 2
+X>4=>Goto 4
+X<1=>Goto 4
+Lbl 5
+If G>4:Then Int 2Ran#->Y
+W=2=>Int 5Ran#->Y
+Y=0=>2->I
+T=0=>2->I
+IfEnd
+T=0=>"CRITIQUE"
+101->A:100->B
+T=0=>201->A
+T=0=>300->B
+If F>2:Then 201->A
+500->B
+T=0=>700->B
+IfEnd
+Int ARan#+B->Y
+If L>4:Then Int (14VRan#+57V)/100->A
+Int AY->Z
+Y-Z->Y
+M-Z->M
+IfEnd
+N-Y->N
+"VOUS TAPEZ":Y
+L>4=>"RENVOYE"
+L>4=>Z
+Int 6Ran#+5->Y
+O+Y->O
+"RETT"
+"+":Y
+Goto 1
+Lbl 6
+If C>0:Then "BLOQUE"
+Goto 2
+IfEnd
+Int 31Ran#+10->A
+Int (AN/100)->Y
+N-Y->N
+"VOUS TAPEZ":Y
+31Ran#+10->A
+Int (AM/100)->Y
+M-Y->M
+"HP PERDUS":Y
+5->C
+Goto 1
+Lbl 7
+If O<20:Then "RETT FAIBLE"
+Goto 2
+IfEnd
+"VOUS TAPEZ"
+0->Z
+Do
+Int 26Ran#+75->Y
+If L>4:Then Int (14VRan#+57V)/100->A
+1-A->B
+Z+Int AY->Z
+Int BY->Y
+IfEnd
+N-Y->N
+Y
+Int 21Ran#->Y
+W=2=>Int 11Ran#->Y
+N<=0=>Goto Z
+LpWhile Y>0
+O-20->O
+L>4=>M-Z->M
+L>4=>"RENVOYE"
+L>4=>Z
+Goto 1
+Lbl 8
+ClrText
+"1-SOINS"
+"2-VOL DE VIE"
+"3-POISON"
+"4-RETOUR"
+?->X
+X=1=>Goto 9
+X=2=>Goto A
+X=3=>Goto B
+X=4=>Goto 2
+X>4=>Goto 8
+X<1=>Goto 8
+Lbl 9
+If S>0:Then "BLOQUE"
+Goto 2
+IfEnd
+201->A:900->B
+T=0=>1400->B
+Int ARan#+B->Y
+M+Y->M
+T=0=>"CRITIQUE"
+"VOUS SOIGNEZ":Y
+3->S
+Goto 1
+Lbl A
+If D>0:Then "BLOQUE"
+Goto 2
+IfEnd
+201->A:500->B
+T=0=>800->B
+Int ARan#+B->Y
+M+Y->M
+N-Y->N
+T=0=>"CRITIQUE"
+"VOUS VOLEZ"
+Y
+7->D
+Goto 1
+Lbl B
+If E>0:Then "BLOQUE"
+Goto 2
+Else 5->E
+Int 6Ran#+5->Y
+O+Y->O
+"RETT"
+"+":Y
+Goto 1
+Lbl C
+ClrText
+"1-VIGUEUR"
+"2-PARALYSIE"
+"3-REDUCTION"
+"4-RETOUR"
+?->X
+X=1=>Goto D
+X=2=>Goto E
+X=3=>Goto F
+X=4=>Goto 2
+X>4=>Goto C
+X<1=>Goto C
+Lbl D
+If F>0:Then "BLOQUE"
+Goto 2
+Else 6->F
+Goto 1
+Lbl E
+If G>0:Then "BLOQUE"
+Goto 2
+Else 7->G
+Goto 1
+Lbl F
+If H>0:Then "BLOQUE"
+Goto 2
+Else 7->H
+Lbl 1
+M>5000=>5000->M
+M<=0=>Goto Y
+N<=0=>Goto Z
+If E>2:Then "EMPOISONNE"
+Int 201Ran#+600->Y
+L>4=>Int (14VRan#+57V)/100->A
+L>4=>Int AY->Z
+L>4=>Y-Z->Y
+N-Y->N
+"HP PERDUS"
+Y
+N<=0=>Goto Z
+L>4=>M-Z->M
+L>4=>"RENVOYE"
+L>4=>Z
+IfEnd
+N<=0=>Goto Z
+I>0=>"PARALYSE"
+W=1=>Prog "GUERRIER"
+W=2=>Prog "MAGE"
+Goto 0
+Lbl Y
+ClrText
+"DEFAITE"
+Goto 3
+Lbl Z
+ClrText
+"VICTOIRE"
+Goto 3

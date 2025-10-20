@@ -1,0 +1,170 @@
+Filename:VRPG
+Lbl 3
+ClrText
+"NOUVEAU JEU"
+0->A~Z
+5000->M
+7500->N
+Lbl 0
+M<=0=>Goto Y
+Dsz H:Dsz I:Dsz J:Dsz K:Dsz L:Dsz P:Dsz Q
+Lbl X
+ClrText
+"VIE ENNEMI":N
+"VIE":M
+ClrText
+I>2=>"PUISSANCE"
+J>2=>"REDUCTION"
+P>4=>"PARALYSIE"
+Lbl 2
+ClrText
+"1-ATTAQUE"
+"2-MAGIE"
+"3-BOOST"
+"4-RETOUR"
+?->X
+X=1=>Goto 4
+X=2=>Goto 8
+X=3=>Goto C
+X=4=>Goto X
+X=20061993=>M+1000->M
+X>4=>Goto 2
+X<1=>Goto 2
+Lbl 4
+ClrText
+"1-COUP"
+"2-PUNITION"
+"3-SACRIFICE"
+"4-RETOUR"
+?->X
+X=1=>Goto 5
+X=2=>Goto 6
+X=3=>Goto 7
+X=4=>Goto 2
+X>4=>Goto 4
+X<1=>Goto 4
+Lbl 5
+P>4=>Int 2Ran#->W
+W=1=>2->Q
+If I<=2:Then 51->A:100->B
+IfEnd
+If I>2:Then 201->A:400->B
+IfEnd
+Int ARan#+B->Y
+N-Y->N
+"VOUS TAPEZ":Y
+Goto 1
+Lbl 6
+If L>0:Then "BLOQUE"
+Goto 2
+Else Int 21Ran#+10->A
+Int (AN/100)->Y
+N-Y->N
+"VOUS TAPEZ":Y
+Int 21Ran#+10->A
+Int (AM/100)->Y
+M-Y->M
+"HP PERDUS":Y
+5->L
+Goto 1
+Lbl 7
+If M>50:Then "IL FAUT - DE 50HP"
+Goto 2
+IfEnd
+If M<=50:Then Int 3001Ran#->Y
+N-Y->N
+"VOUS TAPEZ":Y
+1->M
+Goto 1
+Lbl 8
+ClrText
+"1-SOINS"
+"2-VOL DE VIE"
+"3-POISON"
+"4-RETOUR"
+?->X
+X=1=>Goto 9
+X=2=>Goto A
+X=3=>Goto B
+X=4=>Goto 2
+X>4=>Goto 8
+X<1=>Goto 8
+Lbl 9
+Int 201Ran#+300->Y
+M+Y->M
+M>5000=>5000->M
+"VOUS SOIGNEZ":Y
+Goto 1
+Lbl A
+If H>0:Then "BLOQUE"
+Goto 2
+Else Int 201Ran#+400->Y
+M+Y->M
+N-Y->N
+"VOUS VOLEZ"
+Y
+5->H
+M>5000=>5000->M
+Goto 1
+Lbl B
+If K>0:Then "BLOQUE"
+Goto 2
+Else 5->K
+Goto 1
+Lbl C
+ClrText
+"1-PUISSANCE"
+"2-PARALYSIE"
+"3-REDUCTION"
+"4-RETOUR"
+?->X
+X=1=>Goto D
+X=2=>Goto E
+X=3=>Goto F
+X=4=>Goto 2
+X>4=>Goto C
+X<1=>Goto C
+Lbl D
+If I>0:Then "BLOQUE"
+Goto 2
+Else 6->I
+Goto 1
+Lbl E
+If P>0:Then "BLOQUE"
+Goto 2
+Else 7->P
+Goto 1
+Lbl F
+If J>0:Then "BLOQUE"
+Goto 2
+Else 6->J
+Lbl 1
+If K>3:Then "EMPOISONNE"
+Int 101Ran#+200->Y
+N-Y->N
+"HP PERDUS"
+Y
+IfEnd
+If Q>0:Then "PARALYSE"
+N<=0=>Goto Z
+0->W
+Goto 0
+IfEnd
+N<=0=>Goto Z
+If J>2:Then 26->A:75->B
+IfEnd
+If J<=2:Then 201->A:300->B
+IfEnd
+Int ARan#+B->Y
+M-Y->M
+"VOUS PERDEZ"
+Y
+Goto 0
+Lbl Y
+ClrText
+"DEFAITE"
+Goto 3
+Lbl Z
+ClrText
+"VICTOIRE"
+Goto 3

@@ -1,0 +1,13 @@
+Filename:AREA
+?->A:A->M
+?->B
+If B>M:Then B->M:A->N
+Else B->N
+IfEnd
+?->C
+If C>M:Then N+M->N:C->M
+Else N+C->N
+IfEnd
+If M>N:Then "IMPOSSIBLE"
+Stop
+C/2*sqrt(B^2-((B^2-A^2+C^2)/2C)^2)

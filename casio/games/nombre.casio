@@ -1,0 +1,13 @@
+Filename:NOMBRE
+Int (1000Ran#)+1->X
+0->Z
+Do
+ClrText
+"NOMBRE "?->Y
+Z+1->Z
+X>Y=>"PLUS"
+X<Y=>"MOINS"
+X=Y=>"GAGNE"
+LpWhile X!=Y
+"COUPS"
+Z

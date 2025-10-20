@@ -1,0 +1,21 @@
+Filename:GUERRIER
+I>0=>Return
+M<=800=>Goto 0
+P>=20=>Goto 1
+Lbl 0
+201->A:800->B
+H>4=>101->A
+H>4=>200->B
+Int AVRan#+BV->Y
+M-Y->M
+"IL FRAPPE":Y
+Int 5Ran#+1->Y
+P+Y->P
+"RETT"
+"+":Y
+Return
+Lbl 1
+Int 201VRan#+1300V->Y
+N+Y->N
+"IL SOIGNE":Y
+P-20->P

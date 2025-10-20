@@ -1,0 +1,74 @@
+Filename:MAGE
+Dsz J:Dsz K:Dsz L:Dsz Q
+I>0=>Goto 7
+0->U
+Lbl 0
+Isz U
+U=5=>Goto 1
+P>=20=>Goto 6
+N<=1000=>J<=0=>Goto 2
+E>2=>L<=0=>Goto 4
+O>=20=>L<=0=>Goto 4
+P>=15=>P<20=>Goto 1
+F>2=>J<=2=>L<=0=>Goto 4
+K>3=>Goto 1
+Int 3Ran#->Y
+Y=0=>Goto 2
+Y=1=>Goto 3
+Y=2=>Goto 5
+Lbl 1
+31->A:30->B
+H>4=>11->A
+H>4=>10->A
+K>3=>201->A
+K>3=>800->B
+K>3=>H>4=>300->B
+Int AVRan#+BV->Y
+M-Y->M
+"FRAPPE":Y
+Int 6Ran#+5->Y
+P+Y->P
+"RETT"
+"+":Y
+Goto 7
+Lbl 2
+J>0=>Goto 0
+L>2=>Goto 0
+5->J
+"SOMMEIL"
+Goto 7
+Lbl 3
+K>0=>Goto 0
+7->K
+"FORCE"
+Goto 7
+Lbl 4
+L>0=>Goto 0
+J>2=>Goto 0
+7->L
+"RENVOI"
+Goto 7
+Lbl 5
+Q>0=>Goto 0
+5->Q
+"INFECTION"
+Int 6Ran#+5->Y
+P+Y->P
+"RETT"
+"+":Y
+Goto 7
+Lbl 6
+"ECLAIR"
+For 1->A To 3
+Int 201VRan#+800V->Y
+M-Y->M
+Y
+Next
+P-20->P
+Lbl 7
+If Q>2:Then Int 501VRan#+500V->Y
+M-Y->M
+ClrText
+"INFECTE"
+"HP PERDUS":Y
+IfEnd

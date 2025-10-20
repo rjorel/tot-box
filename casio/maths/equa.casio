@@ -1,0 +1,11 @@
+Filename:EQUA
+?->A
+?->B
+?->C
+?->D
+?->E
+?->F
+"X="
+(FB-CE)/(BD-AE)
+"Y="
+(FA-CD)/(AE-BD)

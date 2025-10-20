@@ -1,0 +1,97 @@
+Filename:BLACK
+1000->M
+Lbl 0
+{1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10}->List 1
+ClrText
+0->A:0->B
+M=0=>Goto 6
+"FRIC":M
+Lbl 5
+"MISE "?->N
+If M<N:Then "PAS ASSEZ"
+Goto 5
+IfEnd
+If N<=0:Then "BIEN TENTE"
+Goto 5
+IfEnd
+Int 52Ran#+1->Y
+B+List 1[Y]->B
+ClrText
+"CROUPIER":List 1[Y]
+0->List 1[Y]
+"VOUS"
+For 0->F To 1
+Lbl A
+Int 52Ran#+1->Y
+List 1[Y]=0=>Goto A
+A+List 1[Y]->A
+List 1[Y]
+0->List 1[Y]
+Next
+"SCORE":A
+Lbl 1
+ClrText
+"CONTINUER"
+"1-OUI"
+"2-NON"
+?->X
+X=1=>Goto 3
+X=2=>Goto 2
+X>2=>Goto 1
+Lbl 3
+ClrText
+"VOUS TIREZ"
+Lbl B
+Int 52Ran#+1->Y
+List 1[Y]=0=>Goto B
+A+List 1[Y]->A
+List 1[Y]
+0->List 1[Y]
+"SCORE":A
+If A=21:Then ClrText
+"--BLACKJACK--"
+"GAIN":(3/2)N
+M+(3/2)N->M
+Goto 0
+IfEnd
+If A>21:Then ClrText
+"PERTE":N
+M-N->M
+Goto 0
+IfEnd
+Goto 1
+Lbl 2
+ClrText
+"CROUPIER"
+Do
+Lbl C
+Int 52Ran#+1->Y
+List 1[Y]=0=>Goto C
+B+List 1[Y]->B
+List 1[Y]
+0->List 1[Y]
+LpWhile B<17
+"SCORE":B
+If B=21:Then ClrText
+"--BLACKJACK--"
+"PERTE":N
+M-N->M
+Goto 0
+IfEnd
+If B>21:Then ClrText
+"GAIN":N
+M+N->M
+Goto 0
+IfEnd
+If A>B:Then ClrText
+"GAIN":N
+M+N->M
+IfEnd
+If A<B:Then ClrText
+"PERTE":N
+M-N->M
+IfEnd
+Goto 0
+Lbl 6
+ClrList
+"ABANDON"

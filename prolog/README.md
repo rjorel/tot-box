@@ -13,7 +13,7 @@ traitement automatique des langages, et est restreint à certains domaines seule
 Et c'est un langage français, qui signifie Programmation Logique. On sent bien que la logique est vraiment dans
 l'esprit français..
 
-Ces exercices sont tirés du livre "Prolog, tout de suite" écrit par <i>Patrick Blackburn</i>, <i>Johan Bos</i> et
-<i>Kristina Striegnitz</i>, et traduit par <i>Hélène Manuélian</i> (titre original "Learn Prolog Now!"). C'est
+Ces exercices sont tirés du livre "Prolog, tout de suite" écrit par _Patrick Blackburn_, _Johan Bos_ et
+_Kristina Striegnitz_, et traduit par _Hélène Manuélian_ (titre original "Learn Prolog Now!"). C'est
 abusé, ce langage, qui est français, ne dispose même pas d'assez de ressources dans sa langue natale et il est
 obligé de piquer celles des anglishs. Ils sont vraiment partout..

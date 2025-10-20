@@ -1,7 +1,7 @@
 # 2015
 
 Cette année-là, le thème était autour de l'aide humanitaire. Mon équipe avait décidé de participer, en partie, au
-défi nommé "Konami Code", où le but était de cacher plein de petits <i>easter eggs</i> sur le site web qui nous
+défi nommé "Konami Code", où le but était de cacher plein de petits _easter eggs_ sur le site web qui nous
 servirait de support pour répondre au thème.
 
 Ma participation fut de coder ce petit jeu très simple. Pour les besoins du site, nous avions inventé un pays et une

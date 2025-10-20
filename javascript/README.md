@@ -11,7 +11,7 @@ l'impasse dessus et de ce fait je me le coltine.
 
 Et pourquoi est-ce que je DÉTESTE ce langage ? Ben tout simplement parce qu'il est tout pété (déjà dit plus haut).
 Plus encore, son écosystème est moisi.. des millions de trucs nazes regroupés sous l'étendard "Ecosystème JavaScript",
-il est beau le développement <i>front-end</i> tiens.
+il est beau le développement _front-end_ tiens.
 
 __EDIT :__ Après pas mal de temps passé à développer en JS, ce langage m'est devenu de moins en moins horrible à
 utiliser, et j'ai presque réussi à accepter que je l'appréciais (un peu). Cependant, comme j'adore troller à tout-va,

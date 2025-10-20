@@ -4,7 +4,7 @@ Lors du second semestre de M1, j'ai dû réaliser (avec
 [Guillaume Béchade](https://www.linkedin.com/in/guillaume-b%C3%A9chade-60a467145/),
 [Craig Josse](https://www.linkedin.com/in/craig-josse-659967125/) et
 [Antoine Laulan](https://www.linkedin.com/in/antoinelaulan/)) une sorte de télécommande contrôlable à distance, en
-utilisant les différents capteurs d'un terminal sous Android (<i>smartphone</i>, tablette).
+utilisant les différents capteurs d'un terminal sous Android (_smartphone_, tablette).
 
 Au départ, il était question de contrôler une TV, mais nous nous sommes rabattus sur VLC pour simplifier les choses.
 L'idée était de se servir des capteurs proposés sur les terminaux Android pour détecter les mouvements de

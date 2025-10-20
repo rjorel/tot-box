@@ -1,6 +1,6 @@
 # Android
 
-Android est une plateforme bien populaire, et est le système d'exploitation le plus utilisé sur <i>smartphone</i>.
+Android est une plateforme bien populaire, et est le système d'exploitation le plus utilisé sur _smartphone_.
 Apple pourrait en être jaloux, mais les iFans claquent quand même plus de thunes dans l'App Store que les
 utilisateurs d'Android dans le Play Store.. quand on parle de pigeons (moi rageux ? mais noooon).
 

@@ -17,7 +17,7 @@ d'utilisation de JNI (code natif C++ appelé par Java), et celle faisant de l'af
 comment appeler du Java depuis C++.
 
 De leur côté, ils devaient détecter une feuille blanche et afficher une image dessus. En plus de finir leur
-application sur <i>smartphone</i>, ils avaient réussi à la porter sur les lunettes Epson Moverio BT-300. Le résultat
+application sur _smartphone_, ils avaient réussi à la porter sur les lunettes Epson Moverio BT-300. Le résultat
 fut décevant et nous avions ainsi conclu que ces lunettes n'étaient pas adaptées à ce genre d'applications. Je me
 suis permis de reprendre la structure de leur code (pas le fond) pour l'homogénéiser avec le mien, afin de le
 proposer ici.

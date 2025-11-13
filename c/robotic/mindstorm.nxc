@@ -1,0 +1,343 @@
+#define NUM_VALUES      16
+#define NUM_ITERATIONS  16
+#define SIZE_OVERWORLD  138
+#define SIZE_CASTLE     96
+
+enum {
+    OVERWORLD, CASTLE
+};
+
+/*
+ * Array for track frequencies and durations.
+ */
+int overworld[138][2] = {
+    { 659,  200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 784,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 392,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 392,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 330,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 440,  200 },
+    { 0,    200 },
+    { 494,  200 },
+    { 0,    200 },
+    { 466,  200 },
+    { 440,  200 },
+    { 0,    200 },
+    { 392,  267 },
+    { 659,  267 },
+    { 784,  267 },
+    { 880,  200 },
+    { 0,    200 },
+    { 699,  200 },
+    { 784,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 587,  200 },
+    { 494,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 392,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 330,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 440,  200 },
+    { 0,    200 },
+    { 494,  200 },
+    { 0,    200 },
+    { 466,  200 },
+    { 440,  200 },
+    { 0,    200 },
+    { 392,  267 },
+    { 659,  267 },
+    { 784,  267 },
+    { 880,  200 },
+    { 0,    200 },
+    { 699,  200 },
+    { 784,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 587,  200 },
+    { 494,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 784,  200 },
+    { 740,  200 },
+    { 699,  200 },
+    { 622,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 415,  200 },
+    { 440,  200 },
+    { 523,  200 },
+    { 0,    200 },
+    { 440,  200 },
+    { 523,  200 },
+    { 587,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 784,  200 },
+    { 740,  200 },
+    { 699,  200 },
+    { 622,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 1046, 200 },
+    { 0,    200 },
+    { 1046, 200 },
+    { 1046, 200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 784,  200 },
+    { 740,  200 },
+    { 699,  200 },
+    { 622,  200 },
+    { 0,    200 },
+    { 659,  200 },
+    { 0,    200 },
+    { 415,  200 },
+    { 440,  200 },
+    { 523,  200 },
+    { 0,    200 },
+    { 440,  200 },
+    { 523,  200 },
+    { 587,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 622,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 587,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 523,  200 },
+    { 0,    200 },
+    { 0,    200 },
+    { 0,    200 }
+};
+
+int castle[96][2] = {
+    { 587, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 523, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 587, 100 },
+    { 392, 100 },
+    { 622, 100 },
+    { 392, 100 },
+    { 587, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 587, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 523, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 587, 100 },
+    { 392, 100 },
+    { 622, 100 },
+    { 392, 100 },
+    { 587, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 392, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 523, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 587, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 587, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 523, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 523, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 587, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 587, 100 },
+    { 370, 100 },
+    { 554, 100 },
+    { 370, 100 },
+    { 523, 100 },
+    { 370, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 740, 100 },
+    { 466, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 },
+    { 622, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 740, 100 },
+    { 466, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 },
+    { 699, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 },
+    { 622, 100 },
+    { 466, 100 },
+    { 659, 100 },
+    { 466, 100 }
+};
+
+int music;
+
+task main() {
+    int value, last_value;
+    int speed;
+    unsigned int i;
+
+    // Sensor n°1 gets distance.
+    SetSensorLowspeed(IN_1);
+
+    last_value = SensorUS(IN_1);
+
+    music = OVERWORLD;
+    StartTask(play);
+
+    while (true) {
+        // Get a sample of NUM_VALUES values before performing checks to estimate if the tracked
+        // object is lost or not.
+        for (i = 0; i < NUM_VALUES && (value = SensorUS(IN_1)) > 50; i++) {
+            Wait(5);
+        }
+
+        if (i < NUM_VALUES) {
+            // In this case, the robot is closed to the tracked object.
+            if ((abs(last_value - value) < 3) && (value >= 22 && value <= 27)) {
+                // The object is really closed, we stop the robot to avoid collision.
+                Off(OUT_BC);
+                speed = 0;
+            } else {
+                // Speed is dependent on the distance between the robot and the tracked object.
+                speed = ((value < 25) ? (2 * value - 50) * 10 / 3 : (value - 25) * 5);
+                OnFwdSync(OUT_BC, speed, 0);
+                Wait(500);
+            }
+        } else {
+            // The tracked object is lost, the robot will turn around to find the object again.
+            // The music changes to express a dramatic situation.
+            music = CASTLE;
+
+            // Try to the right during 160ms.
+            OnFwd(OUT_B, 50);
+            OnRev(OUT_C, 50);
+
+            for (i = 0; i < NUM_ITERATIONS && SensorUS(IN_1) > 50; i++) {
+                Wait(10);
+            }
+
+            if (i == NUM_ITERATIONS) {
+                // Try to the left infinitely if the object was not found to the right.
+                OnFwd(OUT_C, 50);
+                OnRev(OUT_B, 50);
+
+                while (SensorUS(IN_1) > 50) {
+                    Wait(10);
+                }
+            }
+
+            // If the robot found the object, the music changes to express the normal situation.
+            music = OVERWORLD;
+        }
+
+        // Used to estimate the tracked object speed.
+        last_value = value;
+
+        // Some general information, to give the current status.
+        TextOut(1, 1, "Distance: ", true);
+        NumOut(65, 1, value);
+        TextOut(1, 15, "Speed: ");
+        NumOut(60, 10, speed);
+    }
+}
+
+task play() {
+    int i = 0, j = 0;
+
+    while (true) {
+        for (; i < SIZE_OVERWORLD && music == OVERWORLD; i++) {
+            PlayTone(overworld[i][0], overworld[i][1]);
+            Wait(overworld[i][1] + 5);
+        }
+
+        for (; j < SIZE_CASTLE && music == CASTLE; j++) {
+            PlayTone(castle[j][0], castle[j][1]);
+            Wait(castle[j][1] + 5);
+        }
+
+        // Restart musics.
+        i %= SIZE_OVERWORLD;
+        j %= SIZE_CASTLE;
+    }
+}
